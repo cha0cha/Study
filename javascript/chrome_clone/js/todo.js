@@ -17,12 +17,15 @@ function saveToDos() {
 function deleteToDo(event){
     const li = event.target.parentElement;
     li.remove();
+    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
+    saveToDos();
 }
 //리스트 추가기능
 function paintToDo(newTodo) {
     const li = document.createElement("li");
+    li.id = newTodo.id;
     const span = document.createElement("span");
-    span.innerText = newTodo;
+    span.innerText = newTodo.text;
     const button = document.createElement("button");
     button.innerText = "❌";
     button.addEventListener("click", deleteToDo);
@@ -43,7 +46,7 @@ function handleToDoSubmit(event) {
         id: Date.now(),
     };
     toDos.push(newTodoObj);
-    paintToDo(newTodo);
+    paintToDo(newTodoObj);
     saveToDos();       //newTodo가 array에 저장된 시점에서 실행
 }
 
@@ -64,3 +67,5 @@ if(savedToDos){
     //forEach 배열에 하나씩 꺼내서 함수실행 가능
     parsedToDos.forEach(paintToDo);
 }
+
+//filter ->배열에서 삭제하는게 아니라 새로운 array를 만드는거임
