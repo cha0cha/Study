@@ -20,13 +20,6 @@
                 Hello I'm a title
             </h3>
         ); */
-        function Title() {
-            return(
-                <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-                Hello I'm a title
-            </h3>
-            )
-        }
         /* const Button = () => (
             <button 
             style = {{backgroundColor : "red"}}
@@ -34,13 +27,7 @@
             Click me
             </button>
         ); */
-        const Button = () => (
-            <button 
-            style = {{backgroundColor : "red"}}
-            onClick = {() => console.log("i'm clicked")}>
-            Click me
-            </button>
-        ); 
+       
         /* const h3 = React.createElement(
             "h3",
             {id:"span-gang", style: {color:"pink"}, onMouseEnter: () => console.log("mouse enter")},
@@ -55,6 +42,14 @@
         // const container = React.createElement("div", null, [Title, Button]);
         
         //컴포넌트의 첫글자는 무조건 대문자여야함 아니면 HTML요소로 생각함
+        let counter = 0;
+        function countUp() {
+            counter = counter + 1;
+            render();
+        }
+        function render(){
+            ReactDOM.render(<Container />, root);
+        }
         /* const Container = (
             <div>
                 <Title />
@@ -64,13 +59,13 @@
         //함수화
         const Container = () =>(
             <div>
-                <Title />
-                <Button />    
+                <h3>Total clicks: {counter}</h3>
+                <button onClick={countUp}>Click me</button>  
             </div>
             );
         
         // ReactDOM.render(Container, root);
-        ReactDOM.render(<Container />, root);
+        render();
     </script>
 </body>
 </html>
