@@ -42,14 +42,14 @@
         // const container = React.createElement("div", null, [Title, Button]);
         
         //컴포넌트의 첫글자는 무조건 대문자여야함 아니면 HTML요소로 생각함
-        let counter = 0;
-        function countUp() {
+        // let counter = 0;
+    /*     function countUp() {
             counter = counter + 1;
             render();
-        }
-        function render(){
+        } */
+     /*    function render(){
             ReactDOM.render(<Container />, root);
-        }
+        } */
         /* const Container = (
             <div>
                 <Title />
@@ -57,15 +57,29 @@
             </div>
             ); */
         //함수화
-        const Container = () =>(
+      /*   const Container = () =>(
             <div>
                 <h3>Total clicks: {counter}</h3>
                 <button onClick={countUp}>Click me</button>  
             </div>
-            );
+            ); */
         
-        // ReactDOM.render(Container, root);
-        render();
+            /*  render(); */
+            
+            function App() {
+                const [counter, setCounter] = React.useState(0);
+                const onClick = () => {
+                    // counter = counter + 1;
+                    setCounter(counter +1);
+                };
+                return (
+                    <div>
+                        <h3>Total clicks: {counter}</h3>   
+                        <button onClick = {onClick}>Click me</button> 
+                        </div>
+                        )
+                    }
+                    ReactDOM.render(<App />, root);
     </script>
 </body>
 </html>
