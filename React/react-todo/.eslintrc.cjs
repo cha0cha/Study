@@ -1,3 +1,4 @@
+// 자바스크립트 검사 도구
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },

@@ -13,7 +13,6 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <!--JSX를 사용하려면 babel을 가져오고 script에 type = text/babel을 해줘야함-->
     <script type="text/babel">
-        const root = document.querySelector("#root");
        /*  JSX
         const Title = () => (
             <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
@@ -65,22 +64,28 @@
             ); */
         
             /*  render(); */
-            
-            function App() {
-                const [counter, setCounter] = React.useState(0);
-                const onClick = () => {
-                    // counter = counter + 1;
-                    // setCounter(counter +1);
-                    setCounter(current => current + 1);
-                };
-                return (
-                    <div>
-                        <h3>Total clicks: {counter}</h3>   
-                        <button onClick = {onClick}>Click me</button> 
+            function Btn() {
+                    return (
+                        <button style={{
+                            backgroundColor: "pink",
+                            color: "blue",
+                            padding: "10px 20px",
+                            border: 0,
+                            borderRadius: 10,
+                        }}
+                        >Save Changes</button>
+                    );
+                }
+                function App() {
+                    return (
+                        <div>
+                            <saveBtn />
+
                         </div>
-                        )
-                    }
-                    ReactDOM.render(<App />, root);
+                    );
+                }
+                const root = document.querySelector("#root");
+                        ReactDOM.render(<App />, root);
     </script>
 </body>
 </html>
