@@ -1,7 +1,5 @@
 // rfce
 function TodoList({ todos, onTodoRemove }) {
-  //   const [todos, setTodos] = useState(fetchTodos());
-
   return (
     <div>
       <ul>
