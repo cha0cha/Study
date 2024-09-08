@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './CartList.module.css';
 import { removeCartItem } from '@/api';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 export default function CartList({ carts }) {
 	const router = useRouter();
@@ -13,10 +14,15 @@ export default function CartList({ carts }) {
 
 	const removeCart = async id => {
 		// 1. 삭제 API호출
-		const { data } = await removeCartItem(id);
-		alert(`${data.name}삭제 되었습니다.`);
+		const {data} = await axios.post('http://localhost:3000/api/carts', {
+			id: id,
+		});
+		alert(data);
+		// const { data } = await removeCartItem(id);
+		// alert(`${data.name}삭제 되었습니다.`);
 		// 2. 상품 목록 갱신
 		router.replace(router.asPath);
+
 	};
 	return (
 		<div>
