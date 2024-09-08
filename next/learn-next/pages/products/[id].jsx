@@ -1,7 +1,15 @@
+import ProductHeader from '@/components/ProductHeader';
 import React from 'react';
 
 export default function ProductDetailPage({ message }) {
-	return <div> ProductDetailPage : {message}</div>;
+	const headerTitle = '상품 상세 정보 페이지';
+	return (
+		<div>
+			{/* ProductHeader 컴포넌트를 등록하고, title 프롭스에 "상품 상세 정보 페이지" 라고 데이터 전달하기*/}
+			<ProductHeader title={headerTitle} />
+			<div> ProductDetailPage : {message}</div>
+		</div>
+	);
 }
 
 export async function getServerSideProps(context) {

@@ -1,10 +1,13 @@
+import ProductHeader from '@/components/ProductHeader';
 import ProductList from '@/components/ProductList';
 import axios from 'axios';
 
 function ProductPage() {
+	const headerTitle = '상품 목록 페이지';
 	return (
 		<div>
-			<h1>상품 목록</h1>
+			{/* 슬래시 뒤에닫건 태그로 만들건 이건 팀내 컨벤션 */}
+			<ProductHeader title={headerTitle} />
 			<ProductList></ProductList>
 		</div>
 	);
