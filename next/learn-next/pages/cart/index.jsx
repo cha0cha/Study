@@ -4,11 +4,10 @@ import CartList from '@/components/cart/cartList';
 
 // '/cart'에 해당하는 페이지 컴포넌트
 function CartPage({ carts }) {
-	console.log(carts);
 	return (
 		<div>
 			<CartHeader></CartHeader>
-			<CartList></CartList>
+			<CartList carts={carts}></CartList>
 		</div>
 	);
 }
