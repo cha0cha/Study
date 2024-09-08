@@ -1,5 +1,5 @@
 import ProductHeader from '@/components/ProductHeader';
-import ProductList from '@/components/ProductList';
+import ProductList from '@/components//product-list/ProductList';
 import axios from 'axios';
 
 function ProductPage() {
