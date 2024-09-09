@@ -21,4 +21,30 @@ function fetchProductsById(id) {
 	return instance.get(`/products/${id}`);
 }
 
-export { fetchProducts, fetchProductsById };
+// 장바구니에 아이템 추가하는 API 함수
+function createCartItem({ id, name, imageUrl, price }) {
+	return instance.post(`/carts`, {
+		id: id,
+		name: name,
+		imageUrl,
+		price: price,
+	});
+}
+
+// 장바구니 목록을 들고오는 API함수
+function fetchCarts() {
+	return instance.get('/carts');
+}
+
+// 특정 아이디에 해당하는 장바구니 아이템 삭제하는 API함수
+function removeCartItem(id) {
+	return instance.delete(`/carts/${id}`);
+}
+
+export {
+	fetchProducts,
+	fetchProductsById,
+	createCartItem,
+	fetchCarts,
+	removeCartItem,
+};
